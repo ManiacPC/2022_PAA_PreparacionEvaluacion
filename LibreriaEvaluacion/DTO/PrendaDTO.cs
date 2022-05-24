@@ -19,6 +19,7 @@ namespace LibreriaEvaluacion.DTO
             new PrendaDTO() { id = 2, marca = "Nike", talla = "L", Precio = 45000 },
             new PrendaDTO() { id = 3, marca = "Puma", talla = "S", Precio = 40000 }
         };
+
         public int Id { get => id; set => id = value; }
         public string Marca { get => marca; set => marca = value; }
         public string Talla { get => talla; set => talla = value; }
@@ -37,6 +38,26 @@ namespace LibreriaEvaluacion.DTO
             {
                 return false;                
             }
+        }
+
+        public static bool RemoveAt(int indice)
+        {
+            try
+            {
+                datos.RemoveAt(indice);
+                return true;
+            } catch (Exception)
+            {
+                return false;
+            }
+            
+        }
+
+        // Reemplaza (override) el método ToString incorporado en el framework por uno personalizado
+        public override string ToString()
+        {
+            // return $"Id: {this.id}, Marca: {this.marca}, Talla: {this.talla}, Precio: {this.precio}";
+            return $"Id: {id}, Marca: {marca}, Talla: {talla}, Precio: {precio}";
         }
     }
 }
